@@ -1,14 +1,25 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
+  <ion-toolbar >
+    <ion-title >Casas</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only style="color: black" (click)="favoritosClick()">
+        <ion-icon name="star"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content padding style="background-color: #E3D888">
+  
+  <ion-list>
+    <ion-item-sliding *ngFor = "let c of casas">
+      <ion-item (click)='clickcasa(c)'>
+        <img [src]= c.foto >
+        <h2> En {{c.tipo}} </h2>
+        <h3> {{c.colonia}} </h3>
+        <h4> ${{c.precio}} </h4>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+
 </ion-content>
